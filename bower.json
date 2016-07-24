@@ -1,0 +1,22 @@
+{
+  "name": "nonogram",
+  "homepage": "https://github.com/jokude/nonogram",
+  "authors": [
+    "Richard Hidalgo <hidalgo931@gmail.com>"
+  ],
+  "description": "angular nonogram",
+  "main": "",
+  "moduleType": [],
+  "keywords": [
+    "nonogram",
+    "angular"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
