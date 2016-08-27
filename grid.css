@@ -1,29 +1,114 @@
-table {
-	border-collapse: collapse;
+table { 
+    border: black 2px solid;
+    border-collapse: collapse;
+    margin:auto;
 }
-td {
-	width: 60px;
-	height: 60px;
-	border: 1px solid black;
-}
-td.empty {
 
+body{
+    padding-top: 80px;
+    font-family: Verdana,Arial,sans-serif;
 }
-td.paint {
-	background-color: blue;
+
+h1{
+    text-align: center;
+    font-family: "Verdana";
+    padding-bottom: 50px;
+    color: #A9207B;
 }
-td.mark:after{
-  content: "\274c";
+
+td{
+    width: 20px;
+    height: 20px;
+    border: #AEA6AB 1px solid;
+    text-align: center;
 }
-td.mark {
+
+td.cell-empty{
+    background-color: white;
+    cursor: pointer;
 }
-td.fail:after {
-	color: red;
-	content: "\274c";
+
+td.cell-solved {
+    background-color: black;
+    cursor: pointer;
 }
-td.numbers {
-	border: none;
+
+td.cell-marked {
+   background-image: linear-gradient(to bottom right,  transparent calc(50% - 1px), black, transparent calc(50% + 1px)),
+                     linear-gradient(to top right,  transparent calc(50% - 1px), black, transparent calc(50% + 1px));
+   cursor: pointer;
 }
-td span.solved {
-	color: #dfdfdf;
+
+td.cell-failed {
+   background-image: linear-gradient(to bottom right,  transparent calc(50% - 1px), red, transparent calc(50% + 1px)),
+                     linear-gradient(to top right,  transparent calc(50% - 1px), red, transparent calc(50% + 1px)); 
+}
+
+td.clue-enabled{
+    background-color: #f2d4f4;
+}
+td.clue-disabled{
+    background-color: #ffffff;
+}
+
+td.none {
+    border-style: none;
+}
+
+div {
+    border-collapse: separate;
+    border-spacing: 10px 10px;
+}
+
+div.main { 
+    text-align: center;
+    display: inline-block;
+    padding: 25px;
+    background: palevioletred; 
+    font-family:arial; 
+    font-weight:bold; 
+    color: #8836b1;
+    border-radius: 25px;
+    padding-bottom: 20px;
+} 
+
+div.puzzle { 
+    width:70px; 
+    height:70px; 
+    float:center;
+    font-family:arial; 
+    font-weight:bold; 
+    background-color: gray;
+    border: black 1px solid;
+} 
+
+div.center {
+    height: 100px;
+    width:  100px;
+    border: 3px solid black;
+    padding: 10px;
+}
+
+div.rating {
+    padding-top: 0px;
+    font-size: 20px;
+    color: #ffca00;
+}
+
+div.time{
+    padding-top: 5px;
+    font-size: 20px;
+    color: #1f1c1f;
+}
+ 
+div.name{
+    margin-top: 5px;
+}
+
+span.fill::after{
+   content: "\2605";
+}
+
+span.empty::after{
+   content: "\2606";
 }
