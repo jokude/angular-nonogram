@@ -6,30 +6,41 @@
   <title>Nonogram</title>
 
   <script src="./bower_components/angular/angular.min.js"></script>
-  <script src="gridController.js"></script>
+  <script src="app/nonogram.js"></script>
+  <script src="app/directives/rightClickDirective.js"></script>
+  <script src="app/controllers/gridController.js"></script>
 
   <link rel="stylesheet" type="text/css" href="grid.css">
-
 </head>
 
-<body ng-app="nonogramApp" ng-controller="gridController as grid">
+<body ng-app="nonogram">
 
-  <table>
-    <tr ng-repeat="i in grid.range(grid.rows) track by $index">
-      <td ng-repeat="i in grid.range(grid.columns) track by $index" 
-          ng-click="grid.paint($parent.$index, $index)"
-          ng-right-click="grid.mark($parent.$index, $index)" 
-          ng-class="grid.grid[$parent.$index][$index]">
-      </td>
-      <td class="numbers">
-        <span ng-repeat="i in grid.clues.rows[$index] track by $index" ng-class="{solved: i.painted}">{{i.number}}</span>
+  <table ng-controller="gridController as grid">
+
+    <tr ng-repeat="i in grid.range(grid.maxColumnClues) track by $index" ng-init="row=$index">
+      <td ng-repeat="j in grid.range(grid.maxRowClues) track by $index" class="none"></td>
+      <td ng-repeat="j in grid.range(grid.columns) track by $index" 
+          ng-init="clue=grid.columnClues[$index][grid.columnClues[$index].length + row - grid.maxColumnClues]"
+          ng-class="grid.clueState(clue)">
+        {{ clue.number }}
       </td>
     </tr>
 
-    <tr>
-      <td ng-repeat="i in grid.range(grid.rows) track by $index" class="numbers">
+    <tr ng-repeat="i in grid.range(grid.rows) track by $index" ng-init="row=$index">
+      <td ng-repeat="j in grid.range(grid.maxRowClues - grid.rowClues[row].length) track by $index" class="none"></td>
+      <td ng-repeat="j in grid.rowClues[row] track by $index"
+          ng-init="clue=grid.rowClues[row][$index]" 
+          ng-class="grid.clueState(clue)">
+        {{ clue.number }}
+      </td>
+      <td ng-repeat="j in grid.range(grid.columns) track by $index"
+          ng-click="grid.paint(row, $index)"
+          ng-right-click="grid.mark(row, $index)" 
+          ng-class="grid.cellState(row, $index)"
+          ng-mouseover="expression">
       </td>
     </tr>
+
   </table>
 
 </body>
