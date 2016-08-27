@@ -1,41 +1,48 @@
 <!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Nonogram by jokude</title>
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-light.css">
-    <meta name="viewport" content="width=device-width">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Nonogram</h1>
-        <p>Angular Nonogram</p>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Nonogram</title>
 
-        <p class="view"><a href="https://github.com/jokude/nonogram">View the Project on GitHub <small>jokude/nonogram</small></a></p>
+  <script src="./bower_components/angular/angular.min.js"></script>
+  <script src="app/nonogram.js"></script>
+  <script src="app/directives/rightClickDirective.js"></script>
+  <script src="app/controllers/gridController.js"></script>
 
+  <link rel="stylesheet" type="text/css" href="grid.css">
+</head>
 
-        <ul>
-          <li><a href="https://github.com/jokude/nonogram/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/jokude/nonogram/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/jokude/nonogram">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <p>A simple Angular nonogram</p>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/jokude">jokude</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
-  </body>
+<body ng-app="nonogram">
+
+  <table ng-controller="gridController as grid">
+
+    <tr ng-repeat="i in grid.range(grid.maxColumnClues) track by $index" ng-init="row=$index">
+      <td ng-repeat="j in grid.range(grid.maxRowClues) track by $index" class="none"></td>
+      <td ng-repeat="j in grid.range(grid.columns) track by $index" 
+          ng-init="clue=grid.columnClues[$index][grid.columnClues[$index].length + row - grid.maxColumnClues]"
+          ng-class="grid.clueState(clue)">
+        {{ clue.number }}
+      </td>
+    </tr>
+
+    <tr ng-repeat="i in grid.range(grid.rows) track by $index" ng-init="row=$index">
+      <td ng-repeat="j in grid.range(grid.maxRowClues - grid.rowClues[row].length) track by $index" class="none"></td>
+      <td ng-repeat="j in grid.rowClues[row] track by $index"
+          ng-init="clue=grid.rowClues[row][$index]" 
+          ng-class="grid.clueState(clue)">
+        {{ clue.number }}
+      </td>
+      <td ng-repeat="j in grid.range(grid.columns) track by $index"
+          ng-click="grid.paint(row, $index)"
+          ng-right-click="grid.mark(row, $index)" 
+          ng-class="grid.cellState(row, $index)"
+          ng-mouseover="expression">
+      </td>
+    </tr>
+
+  </table>
+
+</body>
+
 </html>
