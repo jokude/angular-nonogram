@@ -2,7 +2,7 @@
   "name": "nonogram",
   "homepage": "https://github.com/jokude/nonogram",
   "authors": [
-    "Richard Hidalgo <hidalgo931@gmail.com>"
+    "Richard Hidalgo"
   ],
   "description": "angular nonogram",
   "main": "",
@@ -20,6 +20,8 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "^1.5.8"
+    "angular": "^1.5.9",
+    "angular-ui-router": "^1.0.0",
+    "angular-material": "^1.1.1"
   }
 }

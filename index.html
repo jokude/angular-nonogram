@@ -5,44 +5,32 @@
   <meta charset="utf-8">
   <title>Nonogram</title>
 
-  <script src="./bower_components/angular/angular.min.js"></script>
-  <script src="app/nonogram.js"></script>
-  <script src="app/directives/rightClickDirective.js"></script>
-  <script src="app/controllers/gridController.js"></script>
+  <!-- dependencies -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+  <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+  <script src="bower_components/angular-material/angular-material.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="./bower_components/angular-material/angular-material.min.css">
+
+  <!--app source -->
+  <script src="src/app.js"></script>
+  <script src="src/routes.js"></script>
+  <script src="src/services/level.service.js"></script>
+  <script src="src/components/main/main.component.js"></script>
+  <script src="src/components/category/categoryList.component.js"></script>
+  <script src="src/components/level/levelList.component.js"></script>
+  <script src="src/components/grid/visual.component.js"></script>
+  <!--script src="app/directives/rightClickDirective.js"></script>
+  <script src="app/services/level.js"></script-->
 
   <link rel="stylesheet" type="text/css" href="grid.css">
+
 </head>
 
-<body ng-app="nonogram">
-
-  <table ng-controller="gridController as grid">
-
-    <tr ng-repeat="i in grid.range(grid.maxColumnClues) track by $index" ng-init="row=$index">
-      <td ng-repeat="j in grid.range(grid.maxRowClues) track by $index" class="none"></td>
-      <td ng-repeat="j in grid.range(grid.columns) track by $index" 
-          ng-init="clue=grid.columnClues[$index][grid.columnClues[$index].length + row - grid.maxColumnClues]"
-          ng-class="grid.clueState(clue)">
-        {{ clue.number }}
-      </td>
-    </tr>
-
-    <tr ng-repeat="i in grid.range(grid.rows) track by $index" ng-init="row=$index">
-      <td ng-repeat="j in grid.range(grid.maxRowClues - grid.rowClues[row].length) track by $index" class="none"></td>
-      <td ng-repeat="j in grid.rowClues[row] track by $index"
-          ng-init="clue=grid.rowClues[row][$index]" 
-          ng-class="grid.clueState(clue)">
-        {{ clue.number }}
-      </td>
-      <td ng-repeat="j in grid.range(grid.columns) track by $index"
-          ng-click="grid.paint(row, $index)"
-          ng-right-click="grid.mark(row, $index)" 
-          ng-class="grid.cellState(row, $index)"
-          ng-mouseover="expression">
-      </td>
-    </tr>
-
-  </table>
-
+<body ng-app="app">
+  <ui-view></ui-view>
 </body>
 
 </html>

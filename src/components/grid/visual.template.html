@@ -1,0 +1,12 @@
+<!--table style="border:1px solid red;">
+  <tr ng-repeat="row in grid track by $index">
+    <td ng-repeat="cell in row track by $index" ng-class="cell ? 'cell-empty' : 'cell-painted'" style="width:10px;height:10px;"></td>
+  </tr>
+</table-->
+<!--div ng-repeat="row in grid track by $index" >
+  <div ng-repeat="cell in row track by $index" ng-class="cell ? 'cell-empty' : 'cell-painted'"
+    style="width: 50px;height:50px;"
+  ></div>
+</div-->
+
+<div ng-init="size=grid.size*5+'px'" ng-style="{ 'width': size, 'height': size, 'border': '1px solid red' }">{{grid.size}}</div>

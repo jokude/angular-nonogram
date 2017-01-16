@@ -1,0 +1,27 @@
+<table>
+
+  <tr ng-repeat="i in $ctrl.range($ctrl.maxColumnClues) track by $index" ng-init="row=$index">
+    <td ng-repeat="j in $ctrl.range($ctrl.maxRowClues) track by $index" class="none"></td>
+    <td ng-repeat="j in $ctrl.range($ctrl.columns) track by $index" 
+        ng-init="clue=$ctrl.columnClues[$index][$ctrl.columnClues[$index].length + row - $ctrl.maxColumnClues]"
+        ng-class="$ctrl.clueState(clue)">
+      {{ clue.number }}
+    </td>
+  </tr>
+
+  <tr ng-repeat="i in $ctrl.range($ctrl.rows) track by $index" ng-init="row=$index">
+    <td ng-repeat="j in $ctrl.range($ctrl.maxRowClues - $ctrl.rowClues[row].length) track by $index" class="none"></td>
+    <td ng-repeat="j in $ctrl.rowClues[row] track by $index"
+        ng-init="clue=$ctrl.rowClues[row][$index]" 
+        ng-class="$ctrl.clueState(clue)">
+      {{ clue.number }}
+    </td>
+    <td ng-repeat="j in $ctrl.range($ctrl.columns) track by $index"
+        ng-click="$ctrl.paint(row, $index)"
+        ng-right-click="$ctrl.mark(row, $index)" 
+        ng-class="$ctrl.cellState(row, $index)"
+        ng-mouseover="expression">
+    </td>
+  </tr>
+
+</table>

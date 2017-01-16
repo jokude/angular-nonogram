@@ -1,4 +1,4 @@
-table { 
+/*table { 
     border: black 2px solid;
     border-collapse: collapse;
     margin:auto;
@@ -111,4 +111,21 @@ span.fill::after{
 
 span.empty::after{
    content: "\2606";
+}*/
+
+main {
+    height: 100%;
+}
+
+.cell-painted{
+  background-color: black;
+}
+
+.cell-empty {
+  background-color: white;
+}
+
+body {
+  max-width: 800px;
+  margin: auto;
 }

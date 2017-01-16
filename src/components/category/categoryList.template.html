@@ -1,0 +1,11 @@
+<md-list>
+  <md-list-item ng-repeat="category in categories track by category.id" ng-click="selectCategory(category)">
+  	<md-divider></md-divider>
+  	<div layout="row" layout-fill>
+  	    <img alt="{{ person.name }}" ng-src="{{ category.img }}" class="md-avatar" />
+	    <p>{{ category.title }}</p>
+	    <span flex></span>
+	    <p>{{ "0/0" }}</p>
+  	</div>
+  </md-list-item>
+</md-list>
