@@ -17,9 +17,13 @@ function routesConfig($stateProvider, $urlRouterProvider) {
       url: '',
       component: 'categoryList'
     })
-    .state('main.levels', {
+    .state('main.category', {
       url: '/category/:categoryId',
       component: 'levelList'
+    })
+    .state('main.level', {
+      url: '/level/:levelId',
+      component: 'grid'
     });
 }
 

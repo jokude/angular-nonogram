@@ -5,16 +5,19 @@
 </style>
 
 
-
 <div ng-cloak>
   
   <div layout="row" layout-wrap layout-align="center center">
-    <div ng-repeat="level in levels">
-      <div style="height: 100px; width: 100px; border: 1px solid black;"> 
-        <div ng-repeat="row in level.grid track by $index" layout="row">
-          <div ng-repeat="cell in row track by $index" ng-class="{{ cell ? 'cell-painted' : 'cell-empty'}}"> {{ cell }}</div>
-        </div>
+    <div ng-repeat="level in levels" layout="column">
+      <div layout="row">
+        <span flex="50" style="text-align: center">{{ level.title }}</span>
+        <span flex="50" style="text-align: center">{{ level.size }} x {{ level.size }}</span>
       </div>
+      <table style="height: 100px; width: 100px; border: 1px solid black;" ng-click="selectLevel(level.id)">
+        <tr ng-repeat="row in level.grid track by $index">
+          <td ng-repeat="cell in row track by $index" ng-class="cell ? 'cell-painted' : 'cell-empty'"></td>
+        </tr>
+      </table>
     </div>
   </div>
 

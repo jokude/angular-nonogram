@@ -12,8 +12,8 @@ function categoryListController($scope, $state, levelService){
 
   $scope.categories = levelService.getCategories();
 
-  $scope.selectCategory = function(category) {
-  	$state.go('main.levels', {categoryId: category.id});
+  $scope.selectCategory = function(categoryId) {
+  	$state.go('main.category', {categoryId: categoryId});
   };
 }
 

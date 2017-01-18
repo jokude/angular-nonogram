@@ -4,18 +4,18 @@
 
 angular.module('app')
   .component('levelList', {
-    controller: levelListController,
-    templateUrl: 'src/components/level/levelList.template.html'
+    templateUrl: 'src/components/level/levelList.template.html',
+    controller: levelListController
   });
 
-function levelListController($scope, $element, $stateParams, $mdMedia, levelService){
+function levelListController($scope, $stateParams, $state, levelService){
 
   $scope.levels = levelService.getLevelsByCategory($stateParams.categoryId);
 
   console.log($scope.levels);
 
-  $scope.selectLevel = function(level) {
-
+  $scope.selectLevel = function(levelId) {
+  	$state.go('main.level', {levelId: levelId });
   };
 }
 

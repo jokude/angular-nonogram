@@ -86,35 +86,35 @@ function Levels() {
       title: 'Grid0',
       grid: [[true, false, false], [false, true, true], [true, false, true]],
       category: 0,
-      size: 5
+      size: 3
     },
     {
       id: 1,
       title: 'Grid1',
       grid: [[false, false, true], [false, false, true], [true, true, true]],
       category: 0,
-      size: 10
+      size: 3
     },
     {
       id: 2,
       title: 'Grid2',
       grid: [[false, false, true], [false, false, true], [true, true, true]],
       category: 0,
-      size: 5
+      size: 3
     },
     {
       id: 3,
       title: 'Grid3',
       grid: [[false, false, true], [false, false, true], [true, true, true]],
       category: 0,
-      size: 5
+      size: 3
     },
     {
       id: 4,
       title: 'Grid3',
       grid: [[false, false, true], [false, false, true], [true, true, true]],
       category: 0,
-      size: 10
+      size: 3
     },
     {
       id: 5,
@@ -128,105 +128,105 @@ function Levels() {
       title: 'Grid3',
       grid: [[false, false, true], [false, false, true], [true, true, true]],
       category: 0,
-      size: 10
+      size: 3
     },
         {
       id: 7,
       title: 'Grid0',
       grid: [[true, false, false], [false, true, true], [true, false, true]],
       category: 0,
-      size: 5
+      size: 3
     },
     {
       id: 8,
       title: 'Grid1',
       grid: [[false, false, true], [false, false, true], [true, true, true]],
       category: 0,
-      size: 10
+      size: 3
     },
     {
       id: 9,
       title: 'Grid2',
       grid: [[false, false, true], [false, false, true], [true, true, true]],
       category: 0,
-      size: 5
+      size: 3
     },
     {
       id: 10,
       title: 'Grid3',
       grid: [[false, false, true], [false, false, true], [true, true, true]],
       category: 0,
-      size: 5
+      size: 3
     },
     {
       id: 11,
       title: 'Grid3',
-      grid: [[false, false, true], [false, false, true], [true, true, true]],
+      grid: [[false, false, true, false], [false, false, true, true], [true, true, true, true], [true, false, true, false]],
       category: 0,
-      size: 10
+      size: 4
     },
     {
       id: 12,
       title: 'Grid3',
       grid: [[false, false, true], [false, false, true], [true, true, true]],
       category: 0,
-      size: 5
+      size: 3
     },
     {
       id: 13,
       title: 'Grid3',
       grid: [[false, false, true], [false, false, true], [true, true, true]],
       category: 0,
-      size: 10
+      size: 3
     },
         {
       id: 14,
       title: 'Grid0',
       grid: [[true, false, false], [false, true, true], [true, false, true]],
       category: 0,
-      size: 5
+      size: 3
     },
     {
       id: 15,
       title: 'Grid1',
       grid: [[false, false, true], [false, false, true], [true, true, true]],
       category: 0,
-      size: 10
+      size: 3
     },
     {
       id: 16,
       title: 'Grid2',
       grid: [[false, false, true], [false, false, true], [true, true, true]],
       category: 0,
-      size: 5
+      size: 3
     },
     {
       id: 17,
       title: 'Grid3',
       grid: [[false, false, true], [false, false, true], [true, true, true]],
       category: 0,
-      size: 5
+      size: 3
     },
     {
       id: 18,
       title: 'Grid3',
       grid: [[false, false, true], [false, false, true], [true, true, true]],
       category: 0,
-      size: 10
+      size: 3
     },
     {
       id: 19,
       title: 'Grid3',
       grid: [[false, false, true], [false, false, true], [true, true, true]],
       category: 0,
-      size: 5
+      size: 3
     },
     {
       id: 20,
       title: 'Grid3',
       grid: [[false, false, true], [false, false, true], [true, true, true]],
       category: 0,
-      size: 10
+      size: 3
     }
   ];
 
@@ -238,6 +238,10 @@ function Levels() {
     return levels.filter(function(level){
       return categoryId == level.category ;
     });
+  };
+
+  this.getLevel = function(levelId) {
+    return levels[levelId];
   };
 };
 

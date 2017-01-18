@@ -16,45 +16,6 @@ h1{
     color: #A9207B;
 }
 
-td{
-    width: 20px;
-    height: 20px;
-    border: #AEA6AB 1px solid;
-    text-align: center;
-}
-
-td.cell-empty{
-    background-color: white;
-    cursor: pointer;
-}
-
-td.cell-solved {
-    background-color: black;
-    cursor: pointer;
-}
-
-td.cell-marked {
-   background-image: linear-gradient(to bottom right,  transparent calc(50% - 1px), black, transparent calc(50% + 1px)),
-                     linear-gradient(to top right,  transparent calc(50% - 1px), black, transparent calc(50% + 1px));
-   cursor: pointer;
-}
-
-td.cell-failed {
-   background-image: linear-gradient(to bottom right,  transparent calc(50% - 1px), red, transparent calc(50% + 1px)),
-                     linear-gradient(to top right,  transparent calc(50% - 1px), red, transparent calc(50% + 1px)); 
-}
-
-td.clue-enabled{
-    background-color: #f2d4f4;
-}
-td.clue-disabled{
-    background-color: #ffffff;
-}
-
-td.none {
-    border-style: none;
-}
-
 div {
     border-collapse: separate;
     border-spacing: 10px 10px;
@@ -112,6 +73,45 @@ span.fill::after{
 span.empty::after{
    content: "\2606";
 }*/
+
+td{
+    width: 20px;
+    height: 20px;
+    border: #AEA6AB 1px solid;
+    text-align: center;
+}
+
+td.cell-empty{
+    background-color: white;
+    cursor: pointer;
+}
+
+td.cell-solved {
+    background-color: black;
+    cursor: pointer;
+}
+
+td.cell-marked {
+   background-image: linear-gradient(to bottom right,  transparent calc(50% - 1px), black, transparent calc(50% + 1px)),
+                     linear-gradient(to top right,  transparent calc(50% - 1px), black, transparent calc(50% + 1px));
+   cursor: pointer;
+}
+
+td.cell-failed {
+   background-image: linear-gradient(to bottom right,  transparent calc(50% - 1px), red, transparent calc(50% + 1px)),
+                     linear-gradient(to top right,  transparent calc(50% - 1px), red, transparent calc(50% + 1px)); 
+}
+
+td.clue-enabled{
+    background-color: #f2d4f4;
+}
+td.clue-disabled{
+    background-color: #ffffff;
+}
+
+td.none {
+    border-style: none;
+}
 
 main {
     height: 100%;
